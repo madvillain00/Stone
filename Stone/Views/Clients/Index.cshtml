@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Stone.Models.Client>
+ 
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+@using (Html.BeginForm("Index","Clients",FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table">
+    
+        <tr>
+            <th>
+
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Address)*@
+                @Html.ActionLink("Address", "Index", new { sortOrder = ViewBag.AddressSortParm })
+            </th>
+            <th>
+                @*//@Html.DisplayNameFor(model => model.Phone)*@
+                @Html.ActionLink("Phone", "Index", new { sortOrder = ViewBag.PhoneSortParm })
+            </th>
+            <th>
+                @*//@Html.DisplayNameFor(model => model.Email)*@
+                @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailSortParm })
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ClientID })
+            </td>
+        </tr>
+    }
+
+</table>

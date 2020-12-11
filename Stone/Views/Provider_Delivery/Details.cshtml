@@ -1,0 +1,34 @@
+﻿@model Stone.Models.Provider_Delivery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Provider_Delivery</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Delivery.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Delivery.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provider.NameOfOrganization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provider.NameOfOrganization)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Provider_DeliveryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
